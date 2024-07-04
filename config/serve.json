@@ -1,0 +1,6 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/spfx-serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "initialPage": "https://sharepointonlineempower.sharepoint.com/sites/Helpdesk/FAQs/_layouts/workbench.aspx"
+}

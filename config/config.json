@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "next-aspect-faqs-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/nextAspectFaqs/NextAspectFaqsWebPart.js",
+          "manifest": "./src/webparts/nextAspectFaqs/NextAspectFaqsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "NextAspectFaqsWebPartStrings": "lib/webparts/nextAspectFaqs/loc/{locale}.js"
+  }
+}

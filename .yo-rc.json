@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "16.20.0",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.9.1"
+    },
+    "version": "1.17.1",
+    "libraryName": "next-aspect-faqs",
+    "libraryId": "a396ca71-8bca-4a1a-9708-e85769b06833",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "next-aspect-faqs",
+    "solutionShortDescription": "next-aspect-faqs description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
