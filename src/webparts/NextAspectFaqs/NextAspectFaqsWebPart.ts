@@ -16,7 +16,6 @@ import 'primeicons/primeicons.css';
 require("../NextAspectFaqs/assets/css/style.css");
 require("../../../node_modules/primereact/resources/primereact.min.css");
 require("../NextAspectFaqs/assets/css/theme.css");
-require("../NextAspectFaqs/assets/css/flags.css");
 require("../NextAspectFaqs/assets/css/common.css");
 require("../../../node_modules/primeflex/primeflex.css");
 
@@ -43,7 +42,6 @@ export default class NextAspectFaqsWebPart extends BaseClientSideWebPart<INextAs
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
         userDisplayName: this.context.pageContext.user.displayName,
         userEmail: this.context.pageContext.user.loginName,
-        siteUrl: this.context.pageContext.web.absoluteUrl,
         absoluteUrl: this.context.pageContext.web.absoluteUrl,
         tenantId: this.context.pageContext.aadInfo.tenantId._guid,
         currentUserId: this.context.pageContext.legacyPageContext["userId"],

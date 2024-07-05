@@ -1,0 +1,12 @@
+/* src/Header.css */
+.header {
+    background-color: #e6e6fa;
+    padding: 10px 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
