@@ -8,7 +8,6 @@ import { LISTS, PRODUCT_NAME, SECRET_KEY } from '../../common/constants';
 import { format, isValid } from 'date-fns';
 import { toast } from 'react-toastify';
 import CustomToast from '../CustomToast/CustomToast';
-import { absoluteUrl, currentUserEmail, currentUserName, tenantId } from '../../webparts/NextAspectFaqs/components/NextAspectFaqs';
 
 const LicenseExpired = (props) => {
     const { licenseShow, isLicenseExpired, setExpired } = props;
@@ -100,13 +99,6 @@ const LicenseExpired = (props) => {
             </div>
         </div>
     );
-
-    console.log("tenantId>>>>>>>>>>>>>", tenantId);
-    console.log("licenseData>>>>>>>>>>>>>", licenseData);
-    console.log("tenantId....", tenantId);
-    console.log("currentUserName....", currentUserName);
-    console.log("currentUserEmail....", currentUserEmail);
-    console.log("absoluteUrl....", absoluteUrl);
 
     return (
         <div className="card flex justify-content-center">

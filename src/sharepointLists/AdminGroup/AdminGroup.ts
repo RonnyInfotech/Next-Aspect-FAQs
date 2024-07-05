@@ -1,7 +1,7 @@
 import { SPFI } from "@pnp/sp";
 import { getSP } from "../../services/pnpConfig";
 import { LISTS } from "../../common/constants";
-import { currentUserEmail } from "../../webparts/NextAspectFaqs/components/NextAspectFaqs";
+import { currentUserEmail } from "../../webparts/nextAspectFaqs/components/NextAspectFaqs";
 
 export const adminGroup = async () => {
     const sp: SPFI = getSP();
@@ -12,11 +12,7 @@ export const adminGroup = async () => {
         try {
             await sp.web.siteGroups.add({ "Title": LISTS.ADMIN_GROUP.NAME }).then(async (res: any) => {
                 if (res?.data?.LoginName) {
-                    await sp.web.siteGroups.getByName(res?.data?.LoginName).users.add("i:0#.f|membership|" + currentUserEmail + "").then((res) => {
-                        console.log("res", res);
-                    }).catch((err) => {
-                        console.log("err...", err);
-                    })
+                    await sp.web.siteGroups.getByName(res?.data?.LoginName).users.add("i:0#.f|membership|" + currentUserEmail + "");
                 }
             });
         } catch (error) {

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import CryptoJS from 'crypto-js';
-import { INextAspectFaqsProps } from './INextAspectFaqsProps';
 import { LISTS, PRODUCT_NAME, SECRET_KEY, TOTAL_LISTS, VERSION_KEY } from '../../../common/constants';
 import { SPFI } from '@pnp/sp';
 import { getSP } from '../../../services/pnpConfig';
@@ -11,6 +10,7 @@ import { BlockUI, Dialog, Button } from 'primereact';
 import AppLoader from '../../../components/AppLoader/AppLoader';
 import LicenseExpired from '../../../components/LicenseExpired/LicenseExpired';
 import FAQsContextProvider from '../../../context/FAQsContext';
+import { INextAspectFaqsProps } from './INextAspectFaqsProps';
 
 export let tenantId: string;
 export let absoluteUrl: string;

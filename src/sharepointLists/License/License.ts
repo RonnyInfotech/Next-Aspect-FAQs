@@ -5,17 +5,11 @@ import { addDoc, collection } from "firebase/firestore";
 import { getSP } from "../../services/pnpConfig";
 import { IsListHidden, LISTS, SECRET_KEY, VERSION_KEY } from "../../common/constants";
 import { db } from "../../services/firebase";
-import { absoluteUrl, currentUserEmail, currentUserName, tenantId } from "../../webparts/NextAspectFaqs/components/NextAspectFaqs";
+import { absoluteUrl, currentUserEmail, currentUserName, tenantId } from "../../webparts/nextAspectFaqs/components/NextAspectFaqs";
 
 export const licenseList = async () => {
     try {
         const sp: SPFI = getSP();
-
-        console.log("tenantId in licenseList...", tenantId);
-        console.log("currentUserName in licenseList...", currentUserName);
-        console.log("currentUserEmail in licenseList...", currentUserEmail);
-        console.log("absoluteUrl in licenseList...", absoluteUrl);
-
         const listEnsureResult = await sp.web.lists.ensure(LISTS.LICENSE_TABLE.NAME, `${VERSION_KEY} : ${LISTS.LICENSE_TABLE.NAME}`, 100, false, { Hidden: IsListHidden });
         if (listEnsureResult.created) {
             await addEntryInLicenseList();
@@ -57,9 +51,6 @@ export const addEntryInLicenseList = async () => {
                         return date;
                     };
 
-                    console.log("tenantId...", tenantId);
-                    console.log("currentUserName...", currentUserName);
-                    console.log("currentUserEmail...", currentUserEmail);
                     const insertData = {
                         clientURL: window.location.hostname,
                         tenantId: tenantId,
@@ -72,16 +63,15 @@ export const addEntryInLicenseList = async () => {
 
                     // const secret = generateFormattedKeyFromPassphrase(SECRET_KEY);
                     const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(insertData), SECRET_KEY).toString();
-                    console.log("encryptedData....", encryptedData);
-
                     await sp.web.lists.getByTitle(LISTS.LICENSE_TABLE.NAME).items.add({
                         licenseKey: encryptedData,
                     });
 
                     try {
                         await addDoc(collection(db, 'NextAspectFAQs'), {
-                            Title: "currentUserName",
-                            Email: "currentUserEmail",
+                            Title: currentUserName,
+                            Email: currentUserEmail,
+                            TenantId: tenantId,
                             Company: "",
                             ContactNumber: "",
                             Country: "",

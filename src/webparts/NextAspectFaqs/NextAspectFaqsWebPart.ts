@@ -1,12 +1,12 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
+import NextAspectFaqs from './components/NextAspectFaqs';
+import { INextAspectFaqsProps } from './components/INextAspectFaqsProps';
 import { IPropertyPaneConfiguration, PropertyPaneTextField } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import * as strings from 'NextAspectFaqsWebPartStrings';
-import NextAspectFaqs from './components/NextAspectFaqs';
-import { INextAspectFaqsProps } from './components/INextAspectFaqsProps';
 import { getSP } from '../../services/pnpConfig';
 import { SPComponentLoader } from '@microsoft/sp-loader';
 import "react-toastify/dist/ReactToastify.css";
