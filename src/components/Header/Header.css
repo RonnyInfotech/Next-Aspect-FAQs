@@ -1,4 +1,4 @@
-/* src/Header.css */
+/* Header.css */
 .header {
     background-color: #e6e6fa;
     padding: 10px 20px;
@@ -9,4 +9,31 @@
     justify-content: space-between;
     width: 100%;
     align-items: center;
+}
+
+/* Sub Header Section css */
+
+.sub-container {
+    background-color: #c8c9fa;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: auto;
+    align-items: baseline;
+}
+
+.sub-button {
+    background: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sub-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
 }

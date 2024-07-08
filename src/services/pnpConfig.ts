@@ -13,6 +13,7 @@ import "@pnp/sp/views";
 import "@pnp/sp/site-users/web";
 import "@pnp/sp/folders";
 import "@pnp/sp/files";
+import "@pnp/sp/items/get-all";
 import "@pnp/sp/recycle-bin";
 
 var _sp: SPFI = null;

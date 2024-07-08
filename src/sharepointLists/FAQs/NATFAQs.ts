@@ -19,6 +19,7 @@ export const faqsList = async () => {
 const faqsFields = async (listName) => {
     try {
         const sp: SPFI = getSP();
+        const categoryList = await sp.web.lists.getByTitle(LISTS.CATEGORIES_TABLE.NAME)();
         await sp.web.lists.getByTitle(listName).fields.select("*")().then(async (res) => {
             const ticketFieldsArray: any = [];
 
@@ -31,9 +32,14 @@ const faqsFields = async (listName) => {
                 await sp.web.lists.getByTitle(listName).defaultView.fields.add("Content");
             }
 
-            if (!ticketFieldsArray.includes("Order")) {
-                await sp.web.lists.getByTitle(listName).fields.addNumber("Order");
-                await sp.web.lists.getByTitle(listName).defaultView.fields.add("Order");
+            if (!ticketFieldsArray.includes("Active")) {
+                await sp.web.lists.getByTitle(listName).fields.addBoolean("Active");
+                await sp.web.lists.getByTitle(listName).defaultView.fields.add("Active");
+            }
+
+            if (!ticketFieldsArray.includes("Category")) {
+                await sp.web.lists.getByTitle(listName).fields.addLookup("Category", { LookupListId: categoryList?.Id, LookupFieldName: "Title" });
+                await sp.web.lists.getByTitle(listName).defaultView.fields.add("Category");
             }
 
             await sp.web.lists.getByTitle(LISTS.FAQS_TABLE.NAME).fields.select("*")().then(async (resListData) => {

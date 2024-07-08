@@ -55,7 +55,7 @@ export default class NextAspectFaqsWebPart extends BaseClientSideWebPart<INextAs
     super();
     // import third party css file from cdn
     SPComponentLoader.loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
-    SPComponentLoader.loadCss('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    SPComponentLoader.loadCss('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap');
   }
 
   protected onInit(): Promise<void> {

@@ -1,0 +1,29 @@
+.faq-item {
+    border-bottom: 1px solid #333;
+    padding: 10px 0;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faq-answer {
+    padding: 10px 0;
+}
+
+.faq-section {
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2,
+h3 {
+    margin: 0;
+}

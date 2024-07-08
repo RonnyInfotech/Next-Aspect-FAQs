@@ -1,0 +1,7 @@
+.faq-title:hover {
+    text-decoration: underline;
+}
+
+.faq-title {
+    color: #0d6efd;
+}

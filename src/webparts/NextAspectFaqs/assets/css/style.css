@@ -2,7 +2,7 @@
     max-width: 100% !important;
 }
 
-#spLeftNav {
+/* #spLeftNav {
     display: none !important;
 }
 
@@ -20,7 +20,7 @@
 
 #spCommandBar {
     display: none !important;
-}
+} */
 
 .CanvasComponent>div>div,
 .CanvasComponent>div>div>div,
@@ -37,13 +37,13 @@
     max-width: 100% !important;
 }
 
-.mainContent>article>div>div {
+/* .mainContent>article>div>div {
     display: block !important;
-}
+} */
 
-.webPartContainer {
+/* .webPartContainer {
     display: none !important;
-}
+} */
 
 .ControlZone--clean {
     padding: 5px !important;
@@ -63,14 +63,9 @@
     max-width: 100% !important;
 }
 
-#CommentsWrapper {
+/* #CommentsWrapper {
     display: none !important;
-}
-
-.container {
-    transition: background-color 1s;
-    background-color: var(--background);
-}
+} */
 
 p {
     margin: 0;
@@ -81,30 +76,6 @@ p {
 }
 
 .manage-canned-messages .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-sub-categories .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-priorities .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-department .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-statuses .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-dynamic-fields .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.trashed-tickets .p-datatable-wrapper {
     height: calc(100vh - 261px);
 }
 
