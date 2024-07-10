@@ -1,17 +1,17 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "next-aspect-faqs-client-side-solution",
+    "name": "Next Aspect FAQs",
     "id": "a396ca71-8bca-4a1a-9708-e85769b06833",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "developer": {
-      "name": "",
+      "name": "Next Aspect Technology",
       "websiteUrl": "",
       "privacyUrl": "",
-      "termsOfUseUrl": "",
+      "termsOfUseUrl": "https://support.office.com/client/61994a3b-2c87-41c4-a88d-a6455efa362d?omkt=en-US&ClientSessionId=e4558dc0-2b11-40f9-b3f5-dcb440bffe2c",
       "mpnId": "Undefined-1.17.1"
     },
     "metadata": {
@@ -27,14 +27,14 @@
     },
     "features": [
       {
-        "title": "next-aspect-faqs Feature",
-        "description": "The feature that activates elements of the next-aspect-faqs solution.",
+        "title": "Next Aspect FAQs Feature",
+        "description": "The feature that activates elements of the Next Aspect FAQs solution.",
         "id": "bb1cd2ec-53c0-4c1b-8063-190feb0144ad",
         "version": "1.0.0.0"
       }
     ]
   },
   "paths": {
-    "zippedPackage": "solution/next-aspect-faqs.sppkg"
+    "zippedPackage": "solution/Next-Aspect-FAQs.sppkg"
   }
 }

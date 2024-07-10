@@ -1,10 +1,13 @@
-import React, { useRef, useState } from 'react';
-import { Avatar, Menu } from 'primereact';
+import React, { useContext, useRef, useState } from 'react';
+import { Avatar, Menu, Image } from 'primereact';
 import LicenseExpired from '../LicenseExpired/LicenseExpired';
 import { useNavigate } from 'react-router-dom';
+import { currentUserEmail, profileImageUrl } from '../../webparts/nextAspectFaqs/components/NextAspectFaqs';
+import { FAQsContext } from '../../context/FAQsContext';
 import './Header.css';
 
 const Header = () => {
+    const { admin } = useContext(FAQsContext);
     const [isVisible, setIsVisible] = useState(false);
     const navigate = useNavigate();
     const menuRight = useRef(null);
@@ -28,8 +31,7 @@ const Header = () => {
                     label: "Manage FAQs",
                     icon: 'pi pi-send',
                     command: () => {
-                        // setIsVisible(true);
-                        navigate('/manage-faq')
+                        navigate('/manage-faq');
                     }
                 },
             ]
@@ -40,11 +42,10 @@ const Header = () => {
         <div>
             <header className="header">
                 <nav className="navbar">
-                    {/* <p className='m-0 font-medium cursor-pointer p-2' onClick={() => navigate('/')}>FAQs</p> */}
-                    <button className="sub-button" onClick={() => navigate('/')}>FAQS</button>
+                    <Image src={require('../../webparts/nextAspectFaqs/assets/images/logo.png')} alt="Image" width="30" onClick={() => navigate('/')} imageStyle={{ marginBottom: '-8px', cursor: 'pointer' }} />
                     <div className="flex">
-                        <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png" shape="circle" onClick={(event) => menuRight.current.toggle(event)} />
-                        <Menu model={items} popup ref={menuRight} id="popup_menu_right" popupAlignment={'right'} />
+                        <Avatar image={profileImageUrl + currentUserEmail} shape="circle" onClick={(event) => menuRight.current.toggle(event)} />
+                        {admin && <Menu model={items} popup ref={menuRight} id="popup_menu_right" popupAlignment={'right'} />}
                     </div>
                 </nav>
             </header>

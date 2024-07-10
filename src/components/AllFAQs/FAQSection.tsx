@@ -1,7 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { InputText } from 'primereact';
 
 const FAQSection = ({ section }) => {
+    const [searchQuery, setSearchQuery] = useState('');
+    const [filteredFaqs, setFilteredFaqs] = useState([]);
+
     const [openIndex, setOpenIndex] = useState(null);
+
+    useEffect(() => {
+        setFilteredFaqs(section.questions);
+    }, [section]);
 
     const handleToggle = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -16,15 +24,30 @@ const FAQSection = ({ section }) => {
                         {isOpen ? <i className="pi pi-minus-circle" /> : <i className="pi pi-plus-circle" />}
                     </div>
                 </div>
-                {isOpen && <div className="faq-answer">{item.answer}</div>}
+                {isOpen && <div className="faq-answer" dangerouslySetInnerHTML={{ __html: item.answer }} />}
             </div>
         );
     };
 
+    const handleSearch = (e) => {
+        const term = e.target.value.toLowerCase();
+        setSearchQuery(term);
+        const filtered = section.questions.filter(question =>
+            question.question.toLowerCase().includes(term)
+        );
+        setFilteredFaqs(filtered);
+    };
+
     return (
         <div className="faq-section">
-            <h3 className='font-bold'>{section.section}</h3>
-            {section.questions.map((item, index) => (
+            <div className='py-2 pr-2 flex justify-content-between align-items-center'>
+                <h3 className='font-bold'>{section.section}</h3>
+                <span className='p-input-icon-left'>
+                    <i className="pi pi-search" />
+                    <InputText className='p-inputtext-sm w-full' type="search" value={searchQuery} onChange={handleSearch} placeholder="Search for questions..." />
+                </span>
+            </div>
+            {filteredFaqs?.map((item, index) => (
                 <FAQItem
                     key={index}
                     item={item}

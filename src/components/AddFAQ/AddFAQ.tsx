@@ -76,6 +76,7 @@ const AddFAQ = () => {
 
     // open FAQ Form Dialog
     const openNew = () => {
+        setAnswer(null);
         setState(initialState);
         setSubmitted(false);
         setFAQDialog(true);
@@ -110,12 +111,12 @@ const AddFAQ = () => {
         } else {
             delete state['Category'];
             if (!ID) {
-                await addItemToList(LISTS.FAQS_TABLE.NAME, state).then(async (res) => {
+                await addItemToList(LISTS.FAQS_TABLE.NAME, { ...state, Content: Answer }).then(async (res) => {
                     notifySuccess('Added FAQ successfully');
                     const queryParams = new GET_LIST_QUERY_PARAMS();
                     queryParams.selectProperties = ["*,Category/ID,Category/Title"];
                     queryParams.expandProperties = ["Category"];
-                    const _item = await getSPListItemById(LISTS.FAQS_TABLE.NAME, queryParams.selectProperties, queryParams.expandProperties, ID);
+                    const _item = await getSPListItemById(LISTS.FAQS_TABLE.NAME, queryParams.selectProperties, queryParams.expandProperties, res.data.ID);
                     FAQsItems.push(_item);
                     setFAQDialog(false);
                     setBlocked(false);
@@ -230,9 +231,9 @@ const AddFAQ = () => {
             const queryParams = new GET_LIST_QUERY_PARAMS();
             queryParams.selectProperties = ["*,Category/ID,Category/Title"];
             queryParams.expandProperties = ["Category"];
-            const _item = await getSPListItemById(LISTS.FAQS_TABLE.NAME, queryParams.selectProperties, queryParams.expandProperties, ID);
+            const _item = await getSPListItemById(LISTS.FAQS_TABLE.NAME, queryParams.selectProperties, queryParams.expandProperties, rowData?.ID);
             const updatedData = FAQsItems?.map((ele) => {
-                if (ele?.ID == ID) {
+                if (ele?.ID == rowData?.ID) {
                     return _item;
                 } else {
                     return ele;
