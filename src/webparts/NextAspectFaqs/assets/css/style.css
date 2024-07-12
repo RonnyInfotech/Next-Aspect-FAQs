@@ -2,25 +2,25 @@
     max-width: 100% !important;
 }
 
-/* #spLeftNav {
+/* this style is use for hide sidebar */
+#spLeftNav {
     display: none !important;
 }
 
+/* this style is use for hide sidebar header */
 #sp-appBar {
     display: none !important;
 }
 
+/* this style is use for hide site header */
 #spSiteHeader {
     display: none !important;
 }
 
+/* this style is use for header which content site content link */
 #SuiteNavWrapper {
     display: none !important;
 }
-
-#spCommandBar {
-    display: none !important;
-} */
 
 .CanvasComponent>div>div,
 .CanvasComponent>div>div>div,
@@ -37,16 +37,16 @@
     max-width: 100% !important;
 }
 
-/* .mainContent>article>div>div {
+.mainContent>article>div>div {
     display: block !important;
-} */
+}
 
-/* .webPartContainer {
+.webPartContainer {
     display: none !important;
-} */
+}
 
 .ControlZone--clean {
-    padding: 5px !important;
+    padding: 0px !important;
     margin: 0px !important;
 }
 
@@ -54,29 +54,28 @@
     padding-left: 0px !important;
 }
 
-.spAppAndPropertyPanelContainer .sp-appBar .sp-appBar-parent-mobile {
-    display: none !important;
+.spAppAndPropertyPanelContainer {
     padding-bottom: 0px !important;
+}
+
+.spAppAndPropertyPanelContainer .sp-appBar {
+    display: none !important;
 }
 
 #workbenchPageContent {
     max-width: 100% !important;
 }
 
-/* #CommentsWrapper {
+#CommentsWrapper {
     display: none !important;
-} */
+}
 
 p {
     margin: 0;
 }
 
 .manage-categories .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-canned-messages .p-datatable-wrapper {
-    height: calc(100vh - 261px);
+    height: calc(100vh - 214px);
 }
 
 .delete-icon {
@@ -96,6 +95,15 @@ p {
 
 .contact-us:hover {
     text-decoration: underline;
+}
+
+.p-scrollpanel-content {
+    padding: 0 !important;
+}
+
+/* style use for hide right side scrollbar */
+.b_a_beed2cf1 {
+    overflow-y: auto !important;
 }
 
 ::-webkit-scrollbar-track {
