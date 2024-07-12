@@ -144,7 +144,7 @@ const NextAspectFaqs = (props: INextAspectFaqsProps) => {
     };
 
     return (
-      <div>
+      <>
         {
           render ? <HashRouter><App /></HashRouter> :
             <BlockUI blocked={!render} fullScreen template={AppLoader} />
@@ -196,7 +196,7 @@ const NextAspectFaqs = (props: INextAspectFaqsProps) => {
         </Dialog>
 
         {licenseDetails && <LicenseExpired licenseShow={isLicenseShow} isLicenseExpired={isLicenseExpired} setExpired={setExpired} />}
-      </div>
+      </>
     );
   };
 

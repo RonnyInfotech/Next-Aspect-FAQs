@@ -30,61 +30,67 @@ const LicenseExpired = (props) => {
     };
 
     const handelSave = async () => {
-        const sp: SPFI = getSP();
-        const impListData = await sp.web.lists.getByTitle(LISTS.LICENSE_TABLE.NAME).items();
-
-        const bytes = CryptoJS.AES.decrypt(licenseKey, SECRET_KEY);
-        const licenseObject = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-
-        var todayDate = new Date().getTime();
-        var trialExpiryDate = new Date(licenseObject.expireDate).getTime();
-
-        if (!isValid(new Date(licenseObject.expireDate))) {
-            notifyError("License key is not valid!");
-            return;
-        }
-        if (!licenseObject.expireDate && !licenseObject.productName && !licenseObject.licenseType) {
-            notifyError("License key is not valid!");
-            return;
-        }
-        if (licenseObject.clientURL != window.location.hostname) {
-            notifyError("License key is not valid!");
+        if (!licenseKey?.trim().length) {
+            notifyError("Please enter a valid license key.");
             return;
         }
 
-        if (licenseObject.productName != PRODUCT_NAME) {
+        let licenseObject;
+
+        try {
+            const bytes = CryptoJS.AES.decrypt(licenseKey, SECRET_KEY);
+            const decryptedData = bytes.toString(CryptoJS.enc.Utf8);
+            if (!decryptedData) {
+                throw new Error("Decryption failed");
+            }
+            licenseObject = JSON.parse(decryptedData);
+        } catch (error) {
             notifyError("License key is not valid!");
             return;
         }
 
-        if (todayDate >= trialExpiryDate) {
+        if (!isValid(new Date(licenseObject.expireDate)) ||
+            !licenseObject.expireDate ||
+            !licenseObject.productName ||
+            !licenseObject.licenseType ||
+            licenseObject.clientURL !== window.location.hostname ||
+            licenseObject.productName !== PRODUCT_NAME ||
+            new Date().getTime() >= new Date(licenseObject.expireDate).getTime()) {
             notifyError("License key is not valid!");
             return;
         }
 
         try {
-            const sp: SPFI = getSP();
+            const sp = getSP();
+            const impListData = await sp.web.lists.getByTitle(LISTS.LICENSE_TABLE.NAME).items();
             const itemID = impListData.length > 0 ? impListData[0].ID : 1;
+
             await sp.web.lists.getByTitle(LISTS.LICENSE_TABLE.NAME).items.getById(itemID).update({
                 licenseKey: licenseKey,
             });
+
             notifySuccess("License verified successfully");
             setTimeout(() => {
                 setIsLicenseShow(false);
                 licenseShow(false);
             }, 1000);
         } catch (err) {
-            notifyError(err);
+            notifyError(err.message || "An error occurred");
         }
     };
 
     const getLicenseInfo = async () => {
-        const sp: SPFI = getSP();
+        const sp = getSP();
         const impListData = await sp.web.lists.getByTitle(LISTS.LICENSE_TABLE.NAME).items();
-        if (impListData[0].licenseKey) {
-            const bytes = CryptoJS.AES.decrypt(impListData[0].licenseKey, SECRET_KEY);
-            const decryptedObject = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-            setLicenseData(decryptedObject);
+
+        if (impListData[0]?.licenseKey) {
+            try {
+                const bytes = CryptoJS.AES.decrypt(impListData[0].licenseKey, SECRET_KEY);
+                const decryptedObject = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+                setLicenseData(decryptedObject);
+            } catch (error) {
+                notifyError("Failed to load license data");
+            }
         }
     };
 

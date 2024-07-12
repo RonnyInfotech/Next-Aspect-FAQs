@@ -10,9 +10,13 @@ export const adminGroup = async () => {
 
     if (checkGroupExists.length === 0) {
         try {
-            await sp.web.siteGroups.add({ "Title": LISTS.ADMIN_GROUP.NAME }).then(async (res: any) => {
+            await sp.web.siteGroups.add({ "Title": LISTS.ADMIN_GROUP.NAME }).then(async (res) => {
                 if (res?.data?.LoginName) {
-                    await sp.web.siteGroups.getByName(res?.data?.LoginName).users.add("i:0#.f|membership|" + currentUserEmail + "");
+                    await sp.web.siteGroups.getByName(res?.data?.LoginName).users.add("i:0#.f|membership|" + currentUserEmail + "").then((res) => {
+                        console.log("res", res);
+                    }).catch((err) => {
+                        console.log("err...", err);
+                    })
                 }
             });
         } catch (error) {

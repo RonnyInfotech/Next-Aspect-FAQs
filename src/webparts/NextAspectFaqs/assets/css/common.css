@@ -47,3 +47,24 @@
 .p-column-filter-add-rule {
     display: none !important;
 }
+
+/* Override default accordion tab icons */
+.p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
+    display: none;
+}
+
+.p-accordion-header-link {
+    padding: 1rem !important;
+}
+
+.p-accordion-header-link:hover {
+    background-color: #e3f2fd !important;
+}
+
+.p-accordion .p-accordion-tab {
+    padding-bottom: 4px !important;
+}
+
+.p-accordion-header-text {
+    width: 100%;
+}

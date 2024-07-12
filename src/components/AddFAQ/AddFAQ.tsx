@@ -29,9 +29,6 @@ const AddFAQ = () => {
     const [Answer, setAnswer] = useState(null);
     const dt = useRef(null);
 
-    console.log("categories....", categories);
-    console.log("FAQsItems....", FAQsItems);
-
     // initialize global filter
     const initFilters = () => {
         setFilters({
@@ -323,7 +320,7 @@ const AddFAQ = () => {
             <CustomToast />
             <BlockUI blocked={blocked} fullScreen template={<Loader />} />
             <DataTable
-                className="manage-categories"
+                className="manage-categories pl-2"
                 ref={dt}
                 scrollable
                 size="small"
@@ -348,7 +345,7 @@ const AddFAQ = () => {
                 <Column selectionMode="multiple" exportable={false} style={{ width: '5rem' }}></Column>
                 <Column field="Title" header="Question" body={TitleTemplate} sortable filter filterClear={filterClearTemplate} filterApply={filterApplyTemplate} filterPlaceholder='Search...' />
                 <Column field="Category.Title" header="Category" sortable filter filterClear={filterClearTemplate} filterApply={filterApplyTemplate} filterPlaceholder='Search...' />
-                <Column field="Active" header="Status" body={activeTemplate} sortable filter />
+                <Column field="Active" header="Status" body={activeTemplate} sortable />
                 <Column body={actionBodyTemplate} header="Action" exportable={false} style={{ width: '8rem' }}></Column>
             </DataTable>
 

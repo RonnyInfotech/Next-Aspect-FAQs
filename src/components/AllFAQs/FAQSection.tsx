@@ -1,33 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { InputText } from 'primereact';
+import { InputText, Accordion, AccordionTab } from 'primereact';
 
 const FAQSection = ({ section }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredFaqs, setFilteredFaqs] = useState([]);
+    const [activeIndex, setActiveIndex] = useState(0);
 
-    const [openIndex, setOpenIndex] = useState(null);
+    const headerTemplate = (title, index) => {
+        const isSelected = index === activeIndex;
+        const iconClassName = isSelected ? 'pi pi-minus' : 'pi pi-plus';
+
+        return (
+            <div style={{ marginLeft: 'auto', display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+                <div>{title}</div>
+                <div><i className={iconClassName}></i></div>
+            </div>
+        );
+    };
+
+    const onTabChange = (e) => {
+        setActiveIndex(e.index);
+    };
 
     useEffect(() => {
         setFilteredFaqs(section.questions);
     }, [section]);
-
-    const handleToggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
-
-    const FAQItem = ({ item, isOpen, onToggle }) => {
-        return (
-            <div className="faq-item">
-                <div className="faq-question" onClick={onToggle}>
-                    <h3 className='font-medium'>{item.question}</h3>
-                    <div className="mr-3">
-                        {isOpen ? <i className="pi pi-minus-circle" /> : <i className="pi pi-plus-circle" />}
-                    </div>
-                </div>
-                {isOpen && <div className="faq-answer" dangerouslySetInnerHTML={{ __html: item.answer }} />}
-            </div>
-        );
-    };
 
     const handleSearch = (e) => {
         const term = e.target.value.toLowerCase();
@@ -40,21 +37,20 @@ const FAQSection = ({ section }) => {
 
     return (
         <div className="faq-section">
-            <div className='py-2 pr-2 flex justify-content-between align-items-center'>
+            <div className='py-2 flex justify-content-between align-items-center'>
                 <h3 className='font-bold'>{section.section}</h3>
                 <span className='p-input-icon-left'>
                     <i className="pi pi-search" />
                     <InputText className='p-inputtext-sm w-full' type="search" value={searchQuery} onChange={handleSearch} placeholder="Search for questions..." />
                 </span>
             </div>
-            {filteredFaqs?.map((item, index) => (
-                <FAQItem
-                    key={index}
-                    item={item}
-                    isOpen={openIndex === index}
-                    onToggle={() => handleToggle(index)}
-                />
-            ))}
+            <Accordion activeIndex={activeIndex} onTabChange={onTabChange}>
+                {filteredFaqs?.map((item, index) => (
+                    <AccordionTab header={headerTemplate(item.question, index)} key={index}>
+                        <div dangerouslySetInnerHTML={{ __html: item.answer }} />
+                    </AccordionTab>
+                ))}
+            </Accordion>
         </div>
     );
 };

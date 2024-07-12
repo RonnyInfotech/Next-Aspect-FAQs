@@ -14,7 +14,8 @@
 /* Sub Header Section css */
 
 .sub-container {
-    background-color: #c8c9fa;
+    /* background-color: #c8c9fa; */
+    background-color: #e3f2fd;
     padding: 3rem;
     display: flex;
     flex-direction: column;

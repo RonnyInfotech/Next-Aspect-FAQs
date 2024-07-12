@@ -4,6 +4,7 @@ import LicenseExpired from '../LicenseExpired/LicenseExpired';
 import { useNavigate } from 'react-router-dom';
 import { currentUserEmail, profileImageUrl } from '../../webparts/nextAspectFaqs/components/NextAspectFaqs';
 import { FAQsContext } from '../../context/FAQsContext';
+import FullscreenToggle from '../FullscreenToggle/FullscreenToggle';
 import './Header.css';
 
 const Header = () => {
@@ -43,8 +44,9 @@ const Header = () => {
             <header className="header">
                 <nav className="navbar">
                     <Image src={require('../../webparts/nextAspectFaqs/assets/images/logo.png')} alt="Image" width="30" onClick={() => navigate('/')} imageStyle={{ marginBottom: '-8px', cursor: 'pointer' }} />
-                    <div className="flex">
-                        <Avatar image={profileImageUrl + currentUserEmail} shape="circle" onClick={(event) => menuRight.current.toggle(event)} />
+                    <div className="flex align-items-center">
+                        <FullscreenToggle />
+                        <Avatar image={profileImageUrl + currentUserEmail} shape="circle" onClick={(event) => menuRight?.current?.toggle(event)} />
                         {admin && <Menu model={items} popup ref={menuRight} id="popup_menu_right" popupAlignment={'right'} />}
                     </div>
                 </nav>
