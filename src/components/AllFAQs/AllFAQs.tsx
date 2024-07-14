@@ -19,7 +19,7 @@ const AllFAQs = () => {
 
     return (
         <>
-            <h1 className='mt-0 font-medium' style={{ fontSize: '1.8rem' }}>Frequently asked questions</h1>
+            <h1 className='mt-0 font-medium' style={{ fontSize: '1.8rem' }}>Frequently Asked Questions</h1>
             <div className='grid'>
                 <div className='col-12 md:col-3 lg:col-3 flex justify-content-center'>
                     <div style={{ height: '41vh' }}>

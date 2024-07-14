@@ -11,19 +11,23 @@
       "name": "Next Aspect Technology",
       "websiteUrl": "",
       "privacyUrl": "",
-      "termsOfUseUrl": "https://support.office.com/client/61994a3b-2c87-41c4-a88d-a6455efa362d?omkt=en-US&ClientSessionId=e4558dc0-2b11-40f9-b3f5-dcb440bffe2c",
-      "mpnId": "Undefined-1.17.1"
+      "termsOfUseUrl": "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWXcE3",
+      "mpnId": "6864918"
     },
     "metadata": {
       "shortDescription": {
-        "default": "next-aspect-faqs description"
+        "default": "Displays frequently asked questions categorized for easy navigation and quick access to information"
       },
       "longDescription": {
-        "default": "next-aspect-faqs description"
+        "default": "Displays frequently asked questions categorized for easy navigation and quick access to information. Features include search functionality, collapsible sections for each category, and the ability to add, edit, or remove questions easily. This solution includes support for SharePoint webpart and SharePoint full page webpart components."
       },
       "screenshotPaths": [],
       "videoUrl": "",
-      "categories": []
+      "categories": [
+        "Collaboration",
+        "Productivity",
+        "Reference"
+      ]
     },
     "features": [
       {
