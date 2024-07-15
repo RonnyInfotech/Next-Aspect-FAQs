@@ -11,7 +11,7 @@ const FAQSection = ({ section }) => {
         const iconClassName = isSelected ? 'pi pi-minus' : 'pi pi-plus';
 
         return (
-            <div style={{ marginLeft: 'auto', display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+            <div className={activeIndex == index && 'selected'} style={{ marginLeft: 'auto', display: 'flex', justifyContent: 'space-between', width: '100%', padding: '1rem' }}>
                 <div>{title}</div>
                 <div><i className={iconClassName}></i></div>
             </div>
@@ -37,20 +37,22 @@ const FAQSection = ({ section }) => {
 
     return (
         <div className="faq-section">
-            <div className='py-2 flex justify-content-between align-items-center'>
+            <div className='py-2 flex justify-content-between align-items-center' style={{ width: '95%' }}>
                 <h3 className='font-bold'>{section.section}</h3>
                 <span className='p-input-icon-left'>
                     <i className="pi pi-search" />
                     <InputText className='p-inputtext-sm w-full' type="search" value={searchQuery} onChange={handleSearch} placeholder="Search for questions..." />
                 </span>
             </div>
-            <Accordion activeIndex={activeIndex} onTabChange={onTabChange}>
-                {filteredFaqs?.map((item, index) => (
-                    <AccordionTab header={headerTemplate(item.question, index)} key={index}>
-                        <div dangerouslySetInnerHTML={{ __html: item.answer }} />
-                    </AccordionTab>
-                ))}
-            </Accordion>
+            <div style={{ maxHeight: '62vh', overflow: 'auto', width: '95%', paddingRight: '0.5rem' }}>
+                <Accordion activeIndex={activeIndex} onTabChange={onTabChange}>
+                    {filteredFaqs?.map((item, index) => (
+                        <AccordionTab header={headerTemplate(item.question, index)} key={index}>
+                            <div dangerouslySetInnerHTML={{ __html: item.answer }} />
+                        </AccordionTab>
+                    ))}
+                </Accordion>
+            </div>
         </div>
     );
 };

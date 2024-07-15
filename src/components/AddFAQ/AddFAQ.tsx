@@ -356,7 +356,7 @@ const AddFAQ = () => {
                         autoFocus
                         className={classNames({ 'p-invalid': submitted && !CategoryId })}
                         value={CategoryId}
-                        options={categories}
+                        options={categories?.filter(category => category.Active)}
                         name="CategoryId"
                         optionValue="Id"
                         optionLabel="Title"

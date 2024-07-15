@@ -53,10 +53,6 @@
     display: none;
 }
 
-.p-accordion-header-link {
-    padding: 1rem !important;
-}
-
 .p-accordion-header-link:hover {
     background-color: #e3f2fd !important;
 }
@@ -67,4 +63,17 @@
 
 .p-accordion-header-text {
     width: 100%;
+}
+
+.custom-listbox .list-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.custom-listbox .list-item.selected {
+    background-color: #e3f2fd;
+}
+
+.selected {
+    background-color: #e3f2fd;
 }

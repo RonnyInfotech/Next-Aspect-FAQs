@@ -46,8 +46,13 @@ const Header = () => {
                     <Image src={require('../../webparts/nextAspectFaqs/assets/images/logo.png')} alt="Image" width="30" onClick={() => navigate('/')} imageStyle={{ marginBottom: '-8px', cursor: 'pointer' }} />
                     <div className="flex align-items-center">
                         <FullscreenToggle />
-                        <Avatar image={profileImageUrl + currentUserEmail} shape="circle" onClick={(event) => menuRight?.current?.toggle(event)} />
-                        {admin && <Menu model={items} popup ref={menuRight} id="popup_menu_right" popupAlignment={'right'} />}
+                        {admin && <>
+                            <i style={{ color: '#0ea5e9' }} className='pi pi-cog cursor-pointer' onClick={(event) => menuRight?.current?.toggle(event)} />
+                            <span className='font-medium ml-1 cursor-pointer' onClick={(event) => menuRight?.current?.toggle(event)}>Settings</span>
+                            <Menu model={items} popup ref={menuRight} id="popup_menu_right" popupAlignment={'right'} />
+                        </>
+                        }
+                        {/* <Avatar image={profileImageUrl + currentUserEmail} shape="circle" onClick={(event) => menuRight?.current?.toggle(event)} /> */}
                     </div>
                 </nav>
             </header>

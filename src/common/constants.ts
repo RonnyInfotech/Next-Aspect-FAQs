@@ -1,14 +1,14 @@
 export const LISTS = {
     LICENSE_TABLE: { NAME: 'NATLicense' },
-    FAQS_TABLE: { NAME: 'NATFAQs' },
-    CATEGORIES_TABLE: { NAME: 'FAQCategories' },
+    FAQS_TABLE: { NAME: 'NATFAQQuestions' },
+    CATEGORIES_TABLE: { NAME: 'NATFAQCategories' },
     ADMIN_GROUP: { NAME: 'FAQs Admin' },
 };
 
 export const TOTAL_LISTS = [
     "FAQs Admin",
-    "FAQCategories",
-    "NATFAQs",
+    "NATFAQCategories",
+    "NATFAQQuestions",
     "NATLicense",
 ];
 
@@ -31,4 +31,9 @@ export const FAQS_FIELDS = [
     'Content',
     'Active',
     'Category',
+];
+
+export const CATEGORIES_FIELDS = [
+    'Active',
+    'Sequence'
 ];

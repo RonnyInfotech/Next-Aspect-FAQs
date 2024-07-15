@@ -57,7 +57,7 @@ export const addEntryInLicenseList = async () => {
                         licenseType: 'Next Aspect FAQs - Trial',
                         productName: 'Next Aspect FAQs',
                         installationDate: format(new Date(), 'yyyy-MM-dd'),
-                        expireDate: format(addDays(5), 'yyyy-MM-dd'),
+                        expireDate: format(addDays(15), 'yyyy-MM-dd'),
                         status: 'Active'
                     };
 

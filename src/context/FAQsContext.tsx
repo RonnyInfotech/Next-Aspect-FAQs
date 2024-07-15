@@ -30,7 +30,9 @@ const FAQsContextProvider = (props: any) => {
             queryParams.orderByColumn,
             queryParams.orderBy
         );
-        setCategories(_categories?.length > 0 ? _categories : []);
+        // Sort categories by Sequence property
+        const sortedCategories = _categories.sort((a, b) => a.Sequence - b.Sequence);
+        setCategories(sortedCategories?.length > 0 ? sortedCategories : []);
     };
 
     const getFAQSData = async () => {

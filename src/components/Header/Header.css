@@ -1,7 +1,6 @@
 /* Header.css */
 .header {
-    background-color: #e6e6fa;
-    padding: 10px 20px;
+    background-color: #e3f2fd;
 }
 
 .navbar {
@@ -9,6 +8,7 @@
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    padding: 20px 20px 10px 20px;
 }
 
 /* Sub Header Section css */
