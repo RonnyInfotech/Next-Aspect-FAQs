@@ -46,12 +46,13 @@
 }
 
 .ControlZone--clean {
-    padding: 0px !important;
+    padding: 5px !important;
     margin: 0px !important;
 }
 
 .CanvasSection {
     padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 .spAppAndPropertyPanelContainer {

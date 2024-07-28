@@ -31,8 +31,11 @@ const AllFAQs = () => {
             <h1 className='font-medium' style={{ fontSize: '1.8rem' }}>Frequently Asked Questions</h1>
             <div className='grid'>
                 <div className='col-12 md:col-3 lg:col-3 flex justify-content-center'>
-                    <div style={{ height: '41vh' }}>
-                        <h3 className='mt-3 mb-2 ml-1 font-bold'>Categories</h3>
+                    <div>
+                        <div className='flex align-items-baseline'>
+                            <i className='mr-2 pi pi-th-large' />
+                            <h3 className='mt-3 ml-1 font-bold' style={{ marginBottom: '0.8rem' }}>FAQ Categories</h3>
+                        </div>
                         <ListBox
                             listClassName="custom-listbox"
                             listStyle={{ maxHeight: '250px' }}
