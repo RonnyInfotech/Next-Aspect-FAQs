@@ -1,0 +1,27 @@
+Partner ID 6864918
+
+
+
+Services
+Consulting
+Custom solution
+Deployment or Migration
+
+* Functional Testing:
+1. Verify that FAQs load correctly based on selected categories.
+2. Ensure that FAQs can be searched using keywords.
+3. Test the creation, editing, and deletion of FAQ entries.
+
+* Category Selection:
+1. Select different categories from the sidebar and ensure the corresponding FAQs are displayed.
+
+* Search Functionality:
+1. Enter various keywords and phrases to search FAQs.
+2. Verify that the search results are accurate and relevant.
+3. Test with partial keywords and misspellings to see if the search is tolerant.
+
+* FAQ Entry Management:
+1. Create new FAQ entries and ensure they are saved correctly.
+2. Edit existing FAQ entries and check that the changes are reflected.
+3. Delete FAQ entries and confirm they are removed from the list.
+4. Test edge cases such as long questions/answers and special characters.

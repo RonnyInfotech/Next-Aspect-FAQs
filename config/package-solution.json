@@ -1,40 +1,44 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
-    "name": "next-aspect-faqs-client-side-solution",
+    "name": "Next Aspect FAQs",
     "id": "a396ca71-8bca-4a1a-9708-e85769b06833",
     "version": "1.0.0.0",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "developer": {
-      "name": "",
+      "name": "Next Aspect Technology",
       "websiteUrl": "",
       "privacyUrl": "",
-      "termsOfUseUrl": "",
-      "mpnId": "Undefined-1.17.1"
+      "termsOfUseUrl": "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWXcE3",
+      "mpnId": "6864918"
     },
     "metadata": {
       "shortDescription": {
-        "default": "next-aspect-faqs description"
+        "default": "Displays frequently asked questions categorized for easy navigation and quick access to information"
       },
       "longDescription": {
-        "default": "next-aspect-faqs description"
+        "default": "Displays frequently asked questions categorized for easy navigation and quick access to information. Features include search functionality, collapsible sections for each category, and the ability to add, edit, or remove questions easily. This solution includes support for SharePoint webpart and SharePoint full page webpart components."
       },
       "screenshotPaths": [],
       "videoUrl": "",
-      "categories": []
+      "categories": [
+        "Collaboration",
+        "Productivity",
+        "Reference"
+      ]
     },
     "features": [
       {
-        "title": "next-aspect-faqs Feature",
-        "description": "The feature that activates elements of the next-aspect-faqs solution.",
+        "title": "Next Aspect FAQs Feature",
+        "description": "The feature that activates elements of the Next Aspect FAQs solution.",
         "id": "bb1cd2ec-53c0-4c1b-8063-190feb0144ad",
         "version": "1.0.0.0"
       }
     ]
   },
   "paths": {
-    "zippedPackage": "solution/next-aspect-faqs.sppkg"
+    "zippedPackage": "solution/Next-Aspect-FAQs.sppkg"
   }
 }

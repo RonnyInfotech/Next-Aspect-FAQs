@@ -5,8 +5,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { getSP } from "../../services/pnpConfig";
 import { IsListHidden, LISTS, SECRET_KEY, VERSION_KEY } from "../../common/constants";
 import { db } from "../../services/firebase";
-import { absoluteUrl, currentUserEmail, currentUserName, tenantId } from "../../webparts/NextAspectFaqs/components/NextAspectFaqs";
-import { generateFormattedKeyFromPassphrase } from "../../common/commonFunction";
+import { absoluteUrl, currentUserEmail, currentUserName, tenantId } from "../../webparts/nextAspectFaqs/components/NextAspectFaqs";
 
 export const licenseList = async () => {
     try {
@@ -54,17 +53,16 @@ export const addEntryInLicenseList = async () => {
 
                     const insertData = {
                         clientURL: window.location.hostname,
+                        tenantId: tenantId,
                         licenseType: 'Next Aspect FAQs - Trial',
                         productName: 'Next Aspect FAQs',
                         installationDate: format(new Date(), 'yyyy-MM-dd'),
-                        expireDate: format(addDays(5), 'yyyy-MM-dd'),
+                        expireDate: format(addDays(15), 'yyyy-MM-dd'),
                         status: 'Active'
                     };
 
                     // const secret = generateFormattedKeyFromPassphrase(SECRET_KEY);
                     const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(insertData), SECRET_KEY).toString();
-                    console.log("encryptedData....", encryptedData);
-                    
                     await sp.web.lists.getByTitle(LISTS.LICENSE_TABLE.NAME).items.add({
                         licenseKey: encryptedData,
                     });
@@ -73,6 +71,7 @@ export const addEntryInLicenseList = async () => {
                         await addDoc(collection(db, 'NextAspectFAQs'), {
                             Title: currentUserName,
                             Email: currentUserEmail,
+                            TenantId: tenantId,
                             Company: "",
                             ContactNumber: "",
                             Country: "",
@@ -81,7 +80,7 @@ export const addEntryInLicenseList = async () => {
                             Requirements: "Install Next Aspect FAQs on site: " + absoluteUrl + " and TenantId: " + tenantId + " and date: " + format(new Date(), 'yyyy-MM-dd HH:mm') + "."
                         })
                     } catch (error) {
-                        console.log(error);
+                        console.log("error>>>>>>>>>>", error);
                     }
                 }
             })

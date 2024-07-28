@@ -6,7 +6,6 @@ export interface INextAspectFaqsProps {
   hasTeamsContext: boolean;
   userDisplayName: string;
   userEmail: string;
-  siteUrl: string;
   absoluteUrl: string;
   tenantId: string;
   currentUserId: any;

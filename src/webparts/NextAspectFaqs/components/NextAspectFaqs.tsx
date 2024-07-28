@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import CryptoJS from 'crypto-js';
-import { INextAspectFaqsProps } from './INextAspectFaqsProps';
 import { LISTS, PRODUCT_NAME, SECRET_KEY, TOTAL_LISTS, VERSION_KEY } from '../../../common/constants';
 import { SPFI } from '@pnp/sp';
 import { getSP } from '../../../services/pnpConfig';
@@ -11,6 +10,9 @@ import { BlockUI, Dialog, Button } from 'primereact';
 import AppLoader from '../../../components/AppLoader/AppLoader';
 import LicenseExpired from '../../../components/LicenseExpired/LicenseExpired';
 import FAQsContextProvider from '../../../context/FAQsContext';
+import { INextAspectFaqsProps } from './INextAspectFaqsProps';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../../../services/firebase';
 
 export let tenantId: string;
 export let absoluteUrl: string;
@@ -27,6 +29,7 @@ const NextAspectFaqs = (props: INextAspectFaqsProps) => {
     const [isLicenseExpired, setLicenseExpired] = useState(false);
     const [productType, setProductType] = useState("");
     const [licenseDetails, setLicenseDetails] = useState(false);
+    const [isBlocked, setIsBlocked] = useState(false);
     tenantId = props.tenantId;
     absoluteUrl = props.absoluteUrl;
     currentUserId = props.currentUserId;
@@ -80,6 +83,17 @@ const NextAspectFaqs = (props: INextAspectFaqsProps) => {
             const decryptedObject = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
             const data: any = decryptedObject;
             if (data.clientURL === window.location.hostname) {
+              try {
+                const q = query(collection(db, 'tenetDetails'), where('hostname', '==', window.location.hostname));
+                const querySnapshot = await getDocs(q);
+                if (!querySnapshot.empty) {
+                  setIsBlocked(true);
+                  _isChecked = true;
+                  return _isChecked;
+                }
+              } catch (error) {
+                console.log(error);
+              }
               if (!data.expireDate && !data.productName && !data.licenseType) {
                 setExpired(true);
                 setLicenseExpired(true);
@@ -130,7 +144,7 @@ const NextAspectFaqs = (props: INextAspectFaqsProps) => {
     };
 
     return (
-      <div>
+      <>
         {
           render ? <HashRouter><App /></HashRouter> :
             <BlockUI blocked={!render} fullScreen template={AppLoader} />
@@ -159,10 +173,30 @@ const NextAspectFaqs = (props: INextAspectFaqsProps) => {
               </div>
             </div>
           </Dialog>
-
         </div>
+
+        {/* Is blocked Dialog*/}
+        <Dialog
+          visible={isBlocked}
+          showHeader={false}
+          draggable={false}
+          closeOnEscape={false}
+          style={{ width: '38vw' }}
+          breakpoints={{ '960px': '75vw', '641px': '90vw' }}
+          contentStyle={{ padding: '1.5rem', borderRadius: '6px' }}
+        >
+          <div className="text-center">
+            <img src={require('../assets/images/access-denied.png')} alt="Error" width={100} />
+            <h1 className='text-2xl mb-1' style={{ color: '#000000' }}>Oops, Please try again.</h1>
+            <p> We're not exactly sure what happened, but something went wrong. <br />
+              If you need immediate help, please <a className='contact-us' href="mailto:bhautik@sharepointempower.com">let us know</a>.
+            </p>
+            <a className='contact-us' href='#'>Explore pricing</a>
+          </div>
+        </Dialog>
+
         {licenseDetails && <LicenseExpired licenseShow={isLicenseShow} isLicenseExpired={isLicenseExpired} setExpired={setExpired} />}
-      </div>
+      </>
     );
   };
 

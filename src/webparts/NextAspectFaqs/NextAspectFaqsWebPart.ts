@@ -1,12 +1,12 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
+import NextAspectFaqs from './components/NextAspectFaqs';
+import { INextAspectFaqsProps } from './components/INextAspectFaqsProps';
 import { IPropertyPaneConfiguration, PropertyPaneTextField } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import * as strings from 'NextAspectFaqsWebPartStrings';
-import NextAspectFaqs from './components/NextAspectFaqs';
-import { INextAspectFaqsProps } from './components/INextAspectFaqsProps';
 import { getSP } from '../../services/pnpConfig';
 import { SPComponentLoader } from '@microsoft/sp-loader';
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +16,6 @@ import 'primeicons/primeicons.css';
 require("../NextAspectFaqs/assets/css/style.css");
 require("../../../node_modules/primereact/resources/primereact.min.css");
 require("../NextAspectFaqs/assets/css/theme.css");
-require("../NextAspectFaqs/assets/css/flags.css");
 require("../NextAspectFaqs/assets/css/common.css");
 require("../../../node_modules/primeflex/primeflex.css");
 
@@ -43,7 +42,6 @@ export default class NextAspectFaqsWebPart extends BaseClientSideWebPart<INextAs
         hasTeamsContext: !!this.context.sdks.microsoftTeams,
         userDisplayName: this.context.pageContext.user.displayName,
         userEmail: this.context.pageContext.user.loginName,
-        siteUrl: this.context.pageContext.web.absoluteUrl,
         absoluteUrl: this.context.pageContext.web.absoluteUrl,
         tenantId: this.context.pageContext.aadInfo.tenantId._guid,
         currentUserId: this.context.pageContext.legacyPageContext["userId"],
@@ -57,7 +55,7 @@ export default class NextAspectFaqsWebPart extends BaseClientSideWebPart<INextAs
     super();
     // import third party css file from cdn
     SPComponentLoader.loadCss('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css');
-    SPComponentLoader.loadCss('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    SPComponentLoader.loadCss('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap');
   }
 
   protected onInit(): Promise<void> {

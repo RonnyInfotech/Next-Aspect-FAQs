@@ -2,23 +2,23 @@
     max-width: 100% !important;
 }
 
+/* this style is use for hide sidebar */
 #spLeftNav {
     display: none !important;
 }
 
+/* this style is use for hide sidebar header */
 #sp-appBar {
     display: none !important;
 }
 
+/* this style is use for hide site header */
 #spSiteHeader {
     display: none !important;
 }
 
+/* this style is use for header which content site content link */
 #SuiteNavWrapper {
-    display: none !important;
-}
-
-#spCommandBar {
     display: none !important;
 }
 
@@ -52,11 +52,15 @@
 
 .CanvasSection {
     padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
-.spAppAndPropertyPanelContainer .sp-appBar .sp-appBar-parent-mobile {
-    display: none !important;
+.spAppAndPropertyPanelContainer {
     padding-bottom: 0px !important;
+}
+
+.spAppAndPropertyPanelContainer .sp-appBar {
+    display: none !important;
 }
 
 #workbenchPageContent {
@@ -67,45 +71,12 @@
     display: none !important;
 }
 
-.container {
-    transition: background-color 1s;
-    background-color: var(--background);
-}
-
 p {
     margin: 0;
 }
 
 .manage-categories .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-canned-messages .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-sub-categories .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-priorities .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-department .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-statuses .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.manage-dynamic-fields .p-datatable-wrapper {
-    height: calc(100vh - 261px);
-}
-
-.trashed-tickets .p-datatable-wrapper {
-    height: calc(100vh - 261px);
+    height: calc(100vh - 214px);
 }
 
 .delete-icon {
@@ -116,6 +87,24 @@ p {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+}
+
+.contact-us {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-us:hover {
+    text-decoration: underline;
+}
+
+.p-scrollpanel-content {
+    padding: 0 !important;
+}
+
+/* style use for hide right side scrollbar */
+.b_a_beed2cf1 {
+    overflow-y: auto !important;
 }
 
 ::-webkit-scrollbar-track {

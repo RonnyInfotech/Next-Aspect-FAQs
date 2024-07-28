@@ -3,6 +3,16 @@
     align-items: center;
 }
 
+.header-button {
+    position: absolute;
+    top: 5%;
+    right: 0%;
+}
+
+.search-drop-drown .p-dropdown-filter-container {
+    width: 90% !important;
+}
+
 .user-image {
     width: 1.5rem !important;
     height: 1.5rem !important;
@@ -31,4 +41,39 @@
     margin: 0.5rem 0;
     cursor: pointer;
     font-size: 14px;
+}
+
+/* filter style */
+.p-column-filter-add-rule {
+    display: none !important;
+}
+
+/* Override default accordion tab icons */
+.p-accordion .p-accordion-header .p-accordion-header-link .p-accordion-toggle-icon {
+    display: none;
+}
+
+.p-accordion-header-link:hover {
+    background-color: #e3f2fd !important;
+}
+
+.p-accordion .p-accordion-tab {
+    padding-bottom: 4px !important;
+}
+
+.p-accordion-header-text {
+    width: 100%;
+}
+
+.custom-listbox .list-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.custom-listbox .list-item.selected {
+    background-color: #e3f2fd;
+}
+
+.selected {
+    background-color: #e3f2fd;
 }
