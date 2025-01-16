@@ -3,15 +3,15 @@
   "solution": {
     "name": "Next Aspect FAQs",
     "id": "a396ca71-8bca-4a1a-9708-e85769b06833",
-    "version": "1.0.0.0",
+    "version": "1.0.0.2",
     "includeClientSideAssets": true,
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
     "developer": {
-      "name": "Next Aspect Technology",
-      "websiteUrl": "",
-      "privacyUrl": "",
-      "termsOfUseUrl": "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWXcE3",
+      "name": "NextAspect Technologies",
+      "websiteUrl": "https://nextaspecttech.com/",
+      "privacyUrl": "https://nextaspecttech.com/privacy-policy",
+      "termsOfUseUrl": "https://support.office.com/client/61994a3b-2c87-41c4-a88d-a6455efa362d?omkt=en-US&ClientSessionId=e4558dc0-2b11-40f9-b3f5-dcb440bffe2c",
       "mpnId": "6864918"
     },
     "metadata": {

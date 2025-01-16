@@ -98,13 +98,13 @@ const LicenseExpired = (props) => {
         getLicenseInfo();
     }, []);
 
-    const footerContent = (
-        <div className='flex'>
-            <div>
-                <a href='https://www.sharepointempower.com/product-pricing-list' target='_blank' className="p-button explore-pricing">Explore Pricing</a>
-            </div>
-        </div>
-    );
+    // const footerContent = (
+    //     <div className='flex'>
+    //         <div>
+    //             <a href='https://www.sharepointempower.com/product-pricing-list' target='_blank' className="p-button explore-pricing">Explore Pricing</a>
+    //         </div>
+    //     </div>
+    // );
 
     return (
         <div className="card flex justify-content-center">

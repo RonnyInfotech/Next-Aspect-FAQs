@@ -68,8 +68,6 @@ const faqsFields = async (listName) => {
 const addDefaultQuestion = async () => {
     try {
         const sp: SPFI = getSP();
-        const categoryItemsDemo = await sp.web.lists.getByTitle(LISTS.CATEGORIES_TABLE.NAME).items.select("*").orderBy('Sequence')();
-        console.log("categoryItemsDemo>>>", categoryItemsDemo);
         const categoryItems = await sp.web.lists.getByTitle(LISTS.CATEGORIES_TABLE.NAME).items.select("*").orderBy('Sequence').getAll(5000);
         // Sort categories by Sequence property
         const sortedCategories = categoryItems.sort((a, b) => a.Sequence - b.Sequence);

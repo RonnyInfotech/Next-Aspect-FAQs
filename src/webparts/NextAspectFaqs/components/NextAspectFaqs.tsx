@@ -168,7 +168,7 @@ const NextAspectFaqs = (props: INextAspectFaqsProps) => {
                 <span className='gap-2 flex justify-content-center align-items-center'>
                   <Button size="small" label="Upgrade Now" severity="success" raised icon="pi pi-refresh" onClick={handleUpgradeNow} />
                   <span>OR</span>
-                  <Button size="small" label="Contact us" severity="success" text icon="pi pi-arrow-right" iconPos='right' />
+                  <Button size="small" label="Contact us" severity="success" text icon="pi pi-arrow-right" iconPos='right' onClick={() => window.location.href = 'https://nextaspecttech.com/contact-us'} />
                 </span>
               </div>
             </div>
@@ -189,9 +189,9 @@ const NextAspectFaqs = (props: INextAspectFaqsProps) => {
             <img src={require('../assets/images/access-denied.png')} alt="Error" width={100} />
             <h1 className='text-2xl mb-1' style={{ color: '#000000' }}>Oops, Please try again.</h1>
             <p> We're not exactly sure what happened, but something went wrong. <br />
-              If you need immediate help, please <a className='contact-us' href="mailto:bhautik@sharepointempower.com">let us know</a>.
+              If you need immediate help, please <a className='contact-us' href="mailto:bhargav@nextaspecttech.com">let us know</a>.
             </p>
-            <a className='contact-us' href='#'>Explore pricing</a>
+            {/* <a className='contact-us' href='#'>Explore pricing</a> */}
           </div>
         </Dialog>
 

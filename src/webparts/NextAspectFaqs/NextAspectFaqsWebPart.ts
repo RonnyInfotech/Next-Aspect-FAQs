@@ -121,17 +121,9 @@ export default class NextAspectFaqsWebPart extends BaseClientSideWebPart<INextAs
     return {
       pages: [
         {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
           groups: [
             {
-              groupName: strings.BasicGroupName,
-              groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
-                })
-              ]
+              groupFields: []
             }
           ]
         }

@@ -1,15 +1,15 @@
 export const LISTS = {
-    LICENSE_TABLE: { NAME: 'NATLicense' },
-    FAQS_TABLE: { NAME: 'NATFAQQuestions' },
-    CATEGORIES_TABLE: { NAME: 'NATFAQCategories' },
+    LICENSE_TABLE: { NAME: 'FAQsLicense' },
+    FAQS_TABLE: { NAME: 'FAQQuestions' },
+    CATEGORIES_TABLE: { NAME: 'FAQCategories' },
     ADMIN_GROUP: { NAME: 'FAQs Admin' },
 };
 
 export const TOTAL_LISTS = [
     "FAQs Admin",
-    "NATFAQCategories",
-    "NATFAQQuestions",
-    "NATLicense",
+    "FAQCategories",
+    "FAQQuestions",
+    "FAQsLicense",
 ];
 
 export class GET_LIST_QUERY_PARAMS {
@@ -21,7 +21,7 @@ export class GET_LIST_QUERY_PARAMS {
     public orderBy: boolean = true;
 };
 
-export const IsListHidden = false;
+export const IsListHidden = true;
 export const SECRET_KEY = "!@Next&Expect#Products*2023";
 export const PRODUCT_NAME = "Next Aspect FAQs";
 export const VERSION_KEY = 'Next Aspect FAQs 1.0.0.0';
